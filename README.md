@@ -7,10 +7,10 @@ Monkey Business - A game about clicking monkeys as they jump at you.. or somethi
 Game Basics
 -----------
 
-    * Bananas are in-game currency used to purchase upgrades.
-        * Bananas are collected from monkeys that come out of the barrel.
-        * Bananas can be stolen by monkeys reaching out of the barrel.
-        * Amount of Bananas received depends on the type of monkey that comes out of the barrel.
+    + Bananas are in-game currency used to purchase upgrades.
+     + Bananas are collected from monkeys that come out of the barrel.
+     + Bananas can be stolen by monkeys reaching out of the barrel.
+     + Amount of Bananas received depends on the type of monkey that comes out of the barrel.
 
 
     * Monkeys are inside the barrel, clicking/knocking on the barrel gets them to come out.
