@@ -1,14 +1,11 @@
-<?php
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
         
     </head>
     <body>
-    
-    <?php include 'include/scripts.inc' ?>
+      <a id="barrel"></a>
+      <div id
+      <?php include 'include/scripts.inc' ?>
     </body>
 </html>
