@@ -12,6 +12,7 @@ Game Basics
         * Bananas can be stolen by monkeys reaching out of the barrel.
         * Amount of Bananas received depends on the type of monkey that comes out of the barrel.
 
+
     * Monkeys are inside the barrel, clicking/knocking on the barrel gets them to come out.
         * Players can upgrade/promote Monkeys up the corporate ladder
             * Promotions cost more bananas the higher up the ladder.
@@ -20,10 +21,12 @@ Game Basics
         * Monkeys can throw poop.  Poop does something, maybe causes a demotion that will decrease Bananas received.
         * Monkeys can grab/steal your Bananas while they are in the barrel.
 
+
     * Barrels contain the Monkeys.  Knocking on it, drives the Monkeys out of the barrel.
         * Barrels can be temporarily upgraded with woodpeckers that knock on the barrel for the player.
             * Woodpeckers last until their beak breaks.
             * Upgraded Woodpeckers have stronger beaks that last longer.
+
 
     * The scene is an Office/Jungle hybrid.
         * The barrel is in the middle of the screen.
@@ -33,6 +36,7 @@ Game Basics
             * Left Cabinets for Monkey Upgrades?
             * Right Cabinets for Barrel Upgrades?
             * Clicking on Cabinets opens up overlay menu?
+
 
     * The Game
         * Players can save/continue games.
