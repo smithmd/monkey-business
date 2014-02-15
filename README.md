@@ -60,10 +60,12 @@ Game Basics
 Game Play Basics
 ----------------
 
-    The player clicks on the barrel to get monkeys to come out.  As the monkey leaves the barrel, the player gets that monkey's bananas.
+    The player clicks on the barrel to get monkeys to come out.  As the monkey leaves the barrel, the player gets
+    that monkey's bananas.
 
     The player uses bananas to upgrade both the monkeys and the barrel.
 
-    Monkey upgrades serve to "promote" the monkey coming out of the barrel, thus making them more fancy and giving them more bananas.
+    Monkey upgrades serve to "promote" the monkey coming out of the barrel, thus making them more fancy and giving
+    them more bananas.
 
     Barrel upgrades enable a temporary "auto-clicker" in the form of a Woodpecker, whose beak will eventually break.
