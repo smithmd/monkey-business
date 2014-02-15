@@ -6,6 +6,9 @@ var Barrel = Class.create();
 Barrel.prototype = {
   initialize: function (name) {
     this.monkeyType = 0;
+  },
+  click: function () {
+    Player.bananas++;
   }
 };
 
