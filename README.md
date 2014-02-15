@@ -52,7 +52,7 @@ Game Basics
         * Since players can continue progress, a leader board might be fun and encourage players to return.
           This would also allow for a "Top Banana" achievement.
     * Events!
-        * Things can happen?  This needs to be flushed out to see what we want.
+        * Things can happen?  This needs to be fleshed out to see what we want.
     * Upgrades!
         * Better/More expensive as time goes on.
 
