@@ -9,5 +9,10 @@ Barrel.prototype = {
   }
 };
 
-var bananas = 0;
+var Player = Class.create();
+Player.prototype = {
+  bananas: 0,
+  initialize: function () {
 
+  }
+};
