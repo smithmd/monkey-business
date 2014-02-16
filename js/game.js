@@ -8,12 +8,12 @@ Barrel.prototype = {
     this.monkeyType = 0;
   },
   click: function () {
-    Player.bananas++;
+    GameState.bananas++;
   }
 };
 
-var Player = Class.create();
-Player.prototype = {
+var GameState = Class.create();
+GameState.prototype = {
   bananas: 0,
   initialize: function () {
 
