@@ -9,9 +9,9 @@ The Prototype.JS library. Currently at version `1.7.1`
 Contains all of the objects for the game.
 
 
-### `Barrel`
+#### `Barrel`
 The barrel that holds the monkey
 
-### `GameState`
+#### `GameState`
 The state of the game. Tracks player's bananas, achievements, upgrades, etc.
 
