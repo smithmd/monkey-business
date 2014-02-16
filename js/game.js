@@ -6,9 +6,11 @@ var Barrel = Class.create();
 Barrel.prototype = {
   initialize: function (name) {
     this.monkeyType = 0;
+    this.totalClicks = 0;
   },
   click: function () {
-    GameState.bananas++;
+    GameState.addBananas(1); // replace with call to instance of gameState
+    this.totalClicks++;
   }
 };
 

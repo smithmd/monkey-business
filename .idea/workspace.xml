@@ -29,7 +29,7 @@
       <file leaf-file-name="game.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="2" selection-start="393" selection-end="393" vertical-scroll-proportion="0.37288135" vertical-offset="0" max-vertical-offset="1062">
+            <state line="11" column="74" selection-start="277" selection-end="277" vertical-scroll-proportion="0.18644068" vertical-offset="0" max-vertical-offset="1062">
               <folding />
             </state>
           </provider>
@@ -285,7 +285,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="2" selection-start="393" selection-end="393" vertical-scroll-proportion="0.37288135" vertical-offset="0" max-vertical-offset="1062">
+        <state line="11" column="74" selection-start="277" selection-end="277" vertical-scroll-proportion="0.18644068" vertical-offset="0" max-vertical-offset="1062">
           <folding />
         </state>
       </provider>
