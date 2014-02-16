@@ -14,8 +14,10 @@ Barrel.prototype = {
 
 var GameState = Class.create();
 GameState.prototype = {
-  bananas: 0,
   initialize: function () {
-
+    this.bananas = 0;
+  },
+  addBananas: function (pBananas) {
+    this.bananas += pBananas;
   }
 };
