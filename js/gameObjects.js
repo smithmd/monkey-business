@@ -26,7 +26,9 @@ Monkey.prototype = {
   poopCheck: function () {
     return 0; // Does some sort of check to see if poop should be thrown.
   },
-
+  throwPoop: function () {
+    //throw some poop
+  }
 };
 
 var GameState = Class.create();
@@ -48,7 +50,7 @@ GameState.prototype = {
    */
   addBananas: function () {
     if (Monkey.poopCheck()) {
-      // Throw Poop!
+      Monkey.throwPoop();
     } else {
       this.bananas += Monkey.dropBananas();
     }
