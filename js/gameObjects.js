@@ -16,16 +16,17 @@ Barrel.prototype = {
 
 var Monkey = Class.create();
 Monkey.prototype = {
-    initialize: function (type, bananas) {
-        this.monkeyType = type;
-        this.bananasDropped = bananas;
-    },
-    dropBananas: function() {
-        return this.bananasDropped;
-    },
-    poopCheck: function() {
-        return 0; // Does some sort of check to see if poop should be thrown.
-    }
+  initialize: function (type, bananas) {
+    this.monkeyType = type;
+    this.bananasDropped = bananas;
+  },
+  dropBananas: function () {
+    return this.bananasDropped;
+  },
+  poopCheck: function () {
+    return 0; // Does some sort of check to see if poop should be thrown.
+  },
+
 };
 
 var GameState = Class.create();
@@ -36,34 +37,34 @@ GameState.prototype = {
     this.monkeyType = monkeyType;           // Type of Monkey in Barrel
     this.hasWoodPecker = hasWoodPecker;     // Will be used for a loop that allows for auto-clicking
   },
-    /** BarrelOfMonkeys... or something.
-     *      Create a list of Monkey objects.
-     *      Pass them monkey type and the number of bananas they drop.
-     */
-    // BarrelOfMonkeys
+  /** BarrelOfMonkeys... or something.
+   *      Create a list of Monkey objects.
+   *      Pass them monkey type and the number of bananas they drop.
+   */
+  // BarrelOfMonkeys
 
-    /** addBananas
-     *      Check to see if the monkey is going to throw poop, if not, add bananas.
-     */
+  /** addBananas
+   *      Check to see if the monkey is going to throw poop, if not, add bananas.
+   */
   addBananas: function () {
-      if(Monkey.poopCheck()) {
-          // Throw Poop!
-      } else {
+    if (Monkey.poopCheck()) {
+      // Throw Poop!
+    } else {
       this.bananas += Monkey.dropBananas();
-      }
+    }
   },
-    /** upgradeMonkey
-     *      Increase monkey type, result of player upgrading the monkey.
-     */
+  /** upgradeMonkey
+   *      Increase monkey type, result of player upgrading the monkey.
+   */
   upgradeMonkey: function () {
-     // Do some sort of check to see if the player can afford and upgrade?
-     // Deduct banana cost from players bananas.
-     this.monkeyType++;
+    // Do some sort of check to see if the player can afford and upgrade?
+    // Deduct banana cost from players bananas.
+    this.monkeyType++;
   },
-    /** downgradeMonkey
-     *      Decrease monkey type, result of monkey throwing poop or something.
-     */
+  /** downgradeMonkey
+   *      Decrease monkey type, result of monkey throwing poop or something.
+   */
   downgradeMonkey: function () {
-      this.monkeyType--;
+    this.monkeyType--;
   }
 };
