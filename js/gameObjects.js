@@ -8,9 +8,12 @@ Barrel.prototype = {
     // this.monkeyType = 0; // Moved this to Monkey
     this.totalClicks = 0;
   },
-  click: function () {
-    GameState.addBananas(); // replace with call to instance of gameState
+  click: function (gameState) {
+    gameState.addBananas(); // replace with call to instance of gameState
     this.totalClicks++;
+  },
+  getClicks: function () {
+    return this.totalClicks;
   }
 };
 
@@ -34,13 +37,16 @@ Monkey.prototype = {
 
 var GameState = Class.create();
 GameState.prototype = {
-  initialize: function (PlayerID, bananas, monkeyType, hasWoodPecker, beakStrength, levelWoodPecker) {
+  initialize: function (PlayerID, bananas, monkeyType, hasWoodPecker, beakStrength, levelWoodPecker, barrelType) {
     this.PlayerID = PlayerID;               // Unique identifier for game continuation?
     this.bananas = bananas;                 // Banana Counter
     this.monkeyType = monkeyType;           // Type of Monkey in Barrel
     this.hasWoodPecker = hasWoodPecker;     // Will be used for a loop that allows for auto-clicking
     this.beakStrenght = beakStrength;       // This determines how long the beak lasts != to seconds.
     this.levelWoodPecker = levelWoodPecker; // This is the current level of the WoodPecker.
+    this.barrelType = barrelType;
+    this.barrel = new Barrel();
+    this.monkey = new Monkey(0,1,0);
   },
   /** BarrelOfMonkeys... or something.
    *      Create a list of Monkey objects.
@@ -52,10 +58,10 @@ GameState.prototype = {
    *      Check to see if the monkey is going to throw poop, if not, add bananas.
    */
   addBananas: function () {
-    if (Monkey.poopCheck()) {
-      Monkey.throwPoop();
+    if (this.monkey.poopCheck()) {
+      this.monkey.throwPoop();
     } else {
-      this.bananas += Monkey.dropBananas();
+      this.bananas += this.monkey.dropBananas();
     }
   },
   /** upgradeMonkey
@@ -70,7 +76,9 @@ GameState.prototype = {
    *      Decrease monkey type, result of monkey throwing poop or something.
    */
   downgradeMonkey: function () {
-    this.monkeyType--;
+    if (this.monkeyType > 0) {
+      this.monkeyType--;
+    }
   },
   /** enableWoodPecker
    *      Turns on the woodpecker, a lower beakStrength means a weaker beak.
@@ -108,5 +116,12 @@ GameState.prototype = {
       this.bananas -= cost;
       return true;
     }
+  },
+  /**
+   * getBarrel
+   * @returns The Barrel object that's currently initialized
+   */
+  getBarrel: function () {
+    return this.getBarrel();
   }
 };

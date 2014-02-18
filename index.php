@@ -5,7 +5,7 @@
     </head>
     <body>
       <div id="bananas"><span id="bCounter">0</span> bananas</div>
-      <a id="barrel">This is the barrel</a>
+      <a href="javascript:void(0);" onclick="barrelClick()" id="barrel">This is the barrel</a>
       <div id="upgrades">
         <a>upgrade 1</a>
         <a>upgrade 2</a>
