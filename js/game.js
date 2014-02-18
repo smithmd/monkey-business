@@ -6,6 +6,6 @@ function barrelClick() {
 }
 
 function addWoodpecker() {
-  gameState.enableWoodPecker(10);
+  gameState.enableWoodPecker(100, 100); // pecks the barrel 100 times, once per 100ms
   refreshBeakStrength();
 }

@@ -83,7 +83,7 @@ GameState.prototype = {
   /** enableWoodPecker
    *      Turns on the woodpecker, a lower beakStrength means a weaker beak.
    */
-  enableWoodPecker: function (beakStrength) {
+  enableWoodPecker: function (beakStrength, peckSpeed) {
     var self = this;
     self.hasWoodPecker = true;
     self.beakStrength = beakStrength;
@@ -98,7 +98,7 @@ GameState.prototype = {
           }
           refreshBananas();
           refreshBeakStrength();
-        }, 1000);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
+        }, peckSpeed);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
     //  Probably some sort of animation or something should be turned on here?
   },
   /** buyWoodPecker
