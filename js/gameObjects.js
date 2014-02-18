@@ -84,6 +84,7 @@ GameState.prototype = {
    *      Turns on the woodpecker, a lower beakStrength means a weaker beak.
    */
   enableWoodPecker: function (beakStrength, peckSpeed, bananaCost) {
+    // save a temporary reference to 'this' object
     var self = this;
     if (self.bananas >= bananaCost) {
       self.hasWoodPecker = true;
