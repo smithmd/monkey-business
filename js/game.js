@@ -6,6 +6,6 @@ function barrelClick() {
 }
 
 function addWoodpecker() {
-  gameState.enableWoodPecker(1000);
+  gameState.enableWoodPecker(10);
   refreshBeakStrength();
 }

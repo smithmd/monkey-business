@@ -98,7 +98,7 @@ GameState.prototype = {
           }
           refreshBananas();
           refreshBeakStrength();
-        }, 30);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
+        }, 1000);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
     //  Probably some sort of animation or something should be turned on here?
   },
   /** buyWoodPecker
