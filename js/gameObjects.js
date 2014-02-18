@@ -83,23 +83,26 @@ GameState.prototype = {
   /** enableWoodPecker
    *      Turns on the woodpecker, a lower beakStrength means a weaker beak.
    */
-  enableWoodPecker: function (beakStrength, peckSpeed) {
+  enableWoodPecker: function (beakStrength, peckSpeed, bananaCost) {
     var self = this;
-    self.hasWoodPecker = true;
-    self.beakStrength = beakStrength;
-    var WoodPecker = setInterval(
-        function () {
-          self.barrel.click(self);
-          self.beakStrength--;
-          if (self.beakStrength === 0) {
-            clearInterval(WoodPecker);  // This ends the automatic execution of the Barrel.click function.
-            //  Probably some sort of animation should be ended here?
-            self.hasWoodPecker = false;
-          }
-          refreshBananas();
-          refreshBeakStrength();
-        }, peckSpeed);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
-    //  Probably some sort of animation or something should be turned on here?
+    if (self.bananas >= bananaCost) {
+      self.hasWoodPecker = true;
+      self.beakStrength = beakStrength;
+      self.spendBananas(bananaCost);
+      var WoodPecker = setInterval(
+          function () {
+            self.barrel.click(self);
+            self.beakStrength--;
+            if (self.beakStrength === 0) {
+              clearInterval(WoodPecker);  // This ends the automatic execution of the Barrel.click function.
+              //  Probably some sort of animation should be ended here?
+              self.hasWoodPecker = false;
+            }
+            refreshBananas();
+            refreshBeakStrength();
+          }, peckSpeed);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
+      //  Probably some sort of animation or something should be turned on here?
+    }
   },
   /** buyWoodPecker
    *      Turns on the WoodPecker, automatically gets stronger and more expensive.

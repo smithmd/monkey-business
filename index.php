@@ -10,7 +10,7 @@
       </div>
       <a href="javascript:void(0);" onclick="barrelClick()" id="barrel"><img src="img/barrel.jpg" /></a>
       <div id="upgrades">
-        <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Woodpecker</a><br />
+        <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Basic Woodpecker (15 bananas)</a><br />
         <a>upgrade 2</a>
       </div>
       <?php include 'include/scripts.inc' ?>
