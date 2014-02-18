@@ -133,11 +133,3 @@ GameState.prototype = {
     return this.getBarrel();
   }
 };
-
-function refreshBananas() {
-  $('bCounter').innerHTML = gameState.bananas;
-}
-
-function refreshBeakStrength() {
-  $('bStrength').innerHTML = gameState.beakStrength;
-}
