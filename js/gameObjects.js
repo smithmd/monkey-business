@@ -47,6 +47,7 @@ GameState.prototype = {
     this.barrelType = barrelType;
     this.barrel = new Barrel();
     this.monkey = new Monkey(0, 1, 0);
+    this.magic = 15;                        // TEMPORARY MAGIC NUMBER TO MAKE WP WORK! WEE!
   },
   /** BarrelOfMonkeys... or something.
    *      Create a list of Monkey objects.
@@ -83,34 +84,37 @@ GameState.prototype = {
   /** enableWoodPecker
    *      Turns on the woodpecker, a lower beakStrength means a weaker beak.
    */
-  enableWoodPecker: function (beakStrength, peckSpeed, bananaCost) {
+  enableWoodPecker: function (beakStrength, peckSpeed) {
     // save a temporary reference to 'this' object
     var self = this;
-    if (self.spendBananas(bananaCost)) {
-      self.hasWoodPecker = true;
-      self.beakStrength = beakStrength;
-      var WoodPecker = setInterval(
-          function () {
-            self.barrel.click(self);
-            self.beakStrength--;
-            if (self.beakStrength === 0) {
-              clearInterval(WoodPecker);  // This ends the automatic execution of the Barrel.click function.
-              //  Probably some sort of animation should be ended here?
-              self.hasWoodPecker = false;
-            }
-            refreshBananas();
-            refreshBeakStrength();
-          }, peckSpeed);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
-      //  Probably some sort of animation or something should be turned on here?
-    }
+    self.hasWoodPecker = true;
+    self.beakStrength = beakStrength;
+    var WoodPecker = setInterval(
+        function () {
+          self.barrel.click(self);
+          self.beakStrength--;
+          if (self.beakStrength === 0) {
+            clearInterval(WoodPecker);  // This ends the automatic execution of the Barrel.click function.
+            //  Probably some sort of animation should be ended here?
+            self.hasWoodPecker = false;
+          }
+          refreshBananas();
+          refreshBeakStrength();
+        }, peckSpeed);  // This clicks the barrel every 1000 milliseconds, doesn't need to be in loop.
+    //  Probably some sort of animation or something should be turned on here?
   },
   /** buyWoodPecker
    *      Turns on the WoodPecker, automatically gets stronger and more expensive.
    */
   buyWoodPecker: function () {
-    if (this.spendBananas(this.levelWoodPecker * 100)) {   // 100 is arbitrary, we'll probably change it.
-      this.enableWoodPecker(this.levelWoodPecker * 100);   // 100 is arbitrary, we'll probably change it.
-      this.levelWoodPecker++;
+    if (this.hasWoodPecker) {
+      return false;
+    } else {
+      if (this.spendBananas(this.magic)) {   // magic starts at 15, increases by about 35% every time.
+        this.enableWoodPecker(Math.floor(this.magic * 1.1), 100);   // 100 is arbitrary, we'll probably change it.
+        this.levelWoodPecker++; // Totally not being used right now, until we make a list of WPs.
+        this.magic = Math.floor(this.magic * 1.35);
+      }
     }
   },
   /** spendBananas

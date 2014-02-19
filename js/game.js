@@ -1,13 +1,16 @@
-var gameState = new GameState(0,0,0,true,0,0,0);
+var gameState = new GameState(0,0,0,false,0,1,0);
 
 function barrelClick() {
   gameState.barrel.click(gameState);
   refreshBananas();
+  refreshWoodPeckerCost();
 }
 
 function addWoodpecker() {
-  gameState.enableWoodPecker(100, 100, 15); // pecks the barrel 100 times, once per 100ms
+  //gameState.enableWoodPecker(100, 100, 15); // pecks the barrel 100 times, once per 100ms
+  gameState.buyWoodPecker();
   refreshBeakStrength();
+  refreshWoodPeckerCost();
 }
 
 function refreshBananas() {
@@ -16,4 +19,8 @@ function refreshBananas() {
 
 function refreshBeakStrength() {
   $('bStrength').innerHTML = gameState.beakStrength;
+}
+
+function refreshWoodPeckerCost() {
+  $('bCost').innerHTML = gameState.magic;
 }
