@@ -9,3 +9,5 @@ ACHIEVEMENTS
 * `Peanut Butter Jelly Time!` : I have no idea, but something
 * `Outbreak!` : Dustin Hoffmonkey
 * `Congo` : by Monkey Crichton
+* `King Kong` : Upgrade Monkey to the highest level.
+* `Chim Chim` : Collect a bunch of bananas reall fast (Speed Racer reference).

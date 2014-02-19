@@ -86,10 +86,9 @@ GameState.prototype = {
   enableWoodPecker: function (beakStrength, peckSpeed, bananaCost) {
     // save a temporary reference to 'this' object
     var self = this;
-    if (self.bananas >= bananaCost) {
+    if (self.spendBananas(bananaCost)) {
       self.hasWoodPecker = true;
       self.beakStrength = beakStrength;
-      self.spendBananas(bananaCost);
       var WoodPecker = setInterval(
           function () {
             self.barrel.click(self);
