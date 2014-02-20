@@ -13,6 +13,18 @@
         <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Basic Woodpecker (<span id="bCost">15</span> bananas)</a><br />
         <a>upgrade 2</a>
       </div>
+      <div id="monkeys">
+      </div>
       <?php include 'include/scripts.inc' ?>
+      <script type="application/javascript">
+        document.observe("dom:loaded", function () {
+            var monkeyList = '<ul>';
+            monkeys.each( function (pair) {
+                monkeyList += '<li>' + pair.value.type + '</li>';
+            });
+            monkeyList += '</ul>';
+            $('monkeys').innerHTML = monkeyList;
+        });
+      </script>
     </body>
 </html>

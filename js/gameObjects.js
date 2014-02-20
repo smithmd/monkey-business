@@ -20,9 +20,12 @@ Barrel.prototype = {
 var Monkey = Class.create();
 Monkey.prototype = {
   initialize: function (type, bananas, cost) {
-    this.monkeyType = type;
+    this.type = type;
     this.bananasDropped = bananas;
     this.cost = cost;
+  },
+  setName: function (name) {
+    this.name = name;
   },
   dropBananas: function () {
     return this.bananasDropped;
