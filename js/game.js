@@ -1,4 +1,4 @@
-var gameState = new GameState(0,0,0,false,0,1,0);
+var gameState = new GameState(0, 0, 0, false, 0, 1, 0);
 
 function barrelClick() {
   gameState.barrel.click(gameState);
