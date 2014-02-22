@@ -5,7 +5,6 @@
 var Barrel = Class.create();
 Barrel.prototype = {
   initialize: function () {
-    // this.monkeyType = 0; // Moved this to Monkey
     this.totalClicks = 0;
   },
   click: function (gameState) {
