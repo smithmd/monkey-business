@@ -15,7 +15,7 @@
       <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Basic Woodpecker (<span id="wCost">15</span>
         bananas)</a><br/>
       <a href="javascript:void(0);" onclick="addMonkey()">Buy a Wild Monkey (10 bananas)</a><br/>
-      <a href="javascript:void(0);" onclick="addBarrel(50)">Buy a Wild Monkey (50 bananas)</a><br/>
+      <a href="javascript:void(0);" onclick="addBarrel(50)">Upgrade the Barrel (50 bananas)</a><br/>
       <a>upgrade 2</a>
     </div>
     <div id="monkeys">
