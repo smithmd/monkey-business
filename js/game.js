@@ -40,4 +40,25 @@ function refreshWoodPeckerCost() {
 function refreshBarrel() {
   $('sBarrel').innerHTML = gameState.barrel.barrelSize;
   $('inBarrel').innerHTML = gameState.barrel.inTheBarrel.length;
+  refreshMonkeysInBarrel();
+  refreshBPC();
+}
+
+function refreshMonkeysInBarrel() {
+  var monkeys = '';
+
+  for (var i = 0; i < gameState.barrel.inTheBarrel.length; i++) {
+    monkeys += '<li>' + gameState.barrel.inTheBarrel[i].type + '</li>';
+  }
+
+  $('monkeysInBarrel').innerHTML = monkeys;
+}
+
+function refreshBPC() {
+  var bananaValue = 0;
+  for (var i = 0; i < gameState.barrel.inTheBarrel.length; i++) {
+    bananaValue += gameState.barrel.inTheBarrel[i].bananasDropped;
+  }
+
+  $('bpc').innerHTML = bananaValue;
 }
