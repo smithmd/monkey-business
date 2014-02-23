@@ -7,7 +7,7 @@ Barrel.prototype = {
   initialize: function () {
     this.totalClicks = 0;
     this.barrelSize = 1;  // Default Barrel size
-    this.inTheBarrel = new Array(new Monkey('Wild', 10, 10, 0, 0));  // create an array of monkeys populated with a basic wild monkey
+    this.inTheBarrel = new Array(new Monkey('Wild', 1, 100, 0, 0));  // create an array of monkeys populated with a basic wild monkey
     //this.inTheBarrel.push(new Monkey('Wild', 10, 10, 0, 0));  // Maybe reference heap [0] somehow?!
     this.inTheBarrel.bananaCount = function () {
       var bCount = 0;
@@ -34,6 +34,8 @@ Monkey.prototype = {
     this.cost = cost;
     this.poopFactor = poop;
     this.stealFactor = steal;
+    this.stolen = 0;
+    this.poopThrown = 0;
   },
   setName: function (name) {
     this.name = name;
@@ -46,6 +48,9 @@ Monkey.prototype = {
   },
   throwPoop: function () {
     //throw some poop
+  },
+  stolenBananas: function () {
+    return this.stolen;
   }
 };
 
