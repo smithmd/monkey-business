@@ -13,8 +13,8 @@ function addWoodpecker() {
   refreshWoodPeckerCost();
 }
 
-function addMonkey() {
-  gameState.buyMonkey(10);  // Eventually we'll pass the monkey type and get cost/etc from that
+function addMonkey(type) {
+  gameState.buyMonkey(type);  // Eventually we'll pass the monkey type and get cost/etc from that
   refreshBananas();
   refreshBarrel();
 }

@@ -134,11 +134,11 @@ GameState.prototype = {
   /** buyMonkey
    *      Buys a monkey and puts it in the barrel!
    */
-  buyMonkey: function (cost) {
+  buyMonkey: function (type) {
     if (this.barrel.barrelSize <= this.barrel.inTheBarrel.length) {
       return false;  // Barrel is full!  This will replaced with some code to randomly pick a monkey to be removed.
-    } else if (this.spendBananas(cost)) {  //Cost of monkey will be based on monkey type
-      this.barrel.inTheBarrel.push(new Monkey('Wild', 10, 10, 0, 0));  // Eventually we'll pass this function the monkey type
+    } else if (this.spendBananas(monkeys.get(type).cost)) {  //Cost of monkey will be based on monkey type
+      this.barrel.inTheBarrel.push( Object.clone(monkeys.get(type) ));  // cloning the object before pushing onto the array
     } else {
       return false;
     }
