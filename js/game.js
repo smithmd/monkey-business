@@ -3,7 +3,7 @@ var gameState = new GameState(0, 0, 0, false, 0, 1, 0);
 function barrelClick() {
   gameState.barrel.click(gameState);
   refreshBananas();
-  refreshWoodPeckerCost();
+  refreshBarrel();
 }
 
 function addWoodpecker() {
@@ -11,6 +11,18 @@ function addWoodpecker() {
   gameState.buyWoodPecker();
   refreshBeakStrength();
   refreshWoodPeckerCost();
+}
+
+function addMonkey() {
+  gameState.buyMonkey(10);  // Eventually we'll pass the monkey type and get cost/etc from that
+  refreshBananas();
+  refreshBarrel();
+}
+
+function addBarrel() {
+  gameState.buyBarrel(50);  // Eventually we'll pass the barrel type and get cost/etc from that
+  refreshBananas();
+  refreshBarrel();
 }
 
 function refreshBananas() {
@@ -22,5 +34,10 @@ function refreshBeakStrength() {
 }
 
 function refreshWoodPeckerCost() {
-  $('bCost').innerHTML = gameState.magic;
+  $('wCost').innerHTML = gameState.magic;
+}
+
+function refreshBarrel() {
+  $('sBarrel').innerHTML = gameState.barrel.barrelSize;
+  $('inBarrel').innerHTML = gameState.barrel.inTheBarrel.length;
 }

@@ -6,9 +6,19 @@ var Barrel = Class.create();
 Barrel.prototype = {
   initialize: function () {
     this.totalClicks = 0;
+    this.barrelSize = 1;  // Default Barrel size
+    this.inTheBarrel = new Array(new Monkey('Wild', 10, 10, 0, 0));  // create an array of monkeys populated with a basic wild monkey
+    //this.inTheBarrel.push(new Monkey('Wild', 10, 10, 0, 0));  // Maybe reference heap [0] somehow?!
+    this.inTheBarrel.bananaCount = function () {
+      var bCount = 0;
+      for(i = 0; i< this.length; i++) {
+        bCount += this[i].dropBananas();
+      }
+      return bCount;
+    }
   },
   click: function (gameState) {
-    gameState.addBananas(); // replace with call to instance of gameState
+    gameState.addBananas(this.inTheBarrel.bananaCount()); // replace with call to instance of gameState
     this.totalClicks++;
   },
   getClicks: function () {
@@ -18,10 +28,12 @@ Barrel.prototype = {
 
 var Monkey = Class.create();
 Monkey.prototype = {
-  initialize: function (type, bananas, cost) {
+  initialize: function (type, bananas, cost, poop, steal) {
     this.type = type;
     this.bananasDropped = bananas;
     this.cost = cost;
+    this.poopFactor = poop;
+    this.stealFactor = steal;
   },
   setName: function (name) {
     this.name = name;
@@ -51,20 +63,15 @@ GameState.prototype = {
     this.monkey = new Monkey(0, 1, 0);
     this.magic = 15;                        // TEMPORARY MAGIC NUMBER TO MAKE WP WORK! WEE!
   },
-  /** BarrelOfMonkeys... or something.
-   *      Create a list of Monkey objects.
-   *      Pass them monkey type and the number of bananas they drop.
-   */
-  // BarrelOfMonkeys
 
   /** addBananas
    *      Check to see if the monkey is going to throw poop, if not, add bananas.
    */
-  addBananas: function () {
+  addBananas: function (bananas) {
     if (this.monkey.poopCheck()) {
       this.monkey.throwPoop();
     } else {
-      this.bananas += this.monkey.dropBananas();
+      this.bananas += bananas;
     }
   },
   /** upgradeMonkey
@@ -117,6 +124,26 @@ GameState.prototype = {
         this.levelWoodPecker++; // Totally not being used right now, until we make a list of WPs.
         this.magic = Math.floor(this.magic * 1.35);
       }
+    }
+  },
+  /** buyMonkey
+   *      Buys a monkey and puts it in the barrel!
+   */
+  buyMonkey: function (cost) {
+    if (this.barrel.barrelSize <= this.barrel.inTheBarrel.length) {
+      return false;  // Barrel is full!  This will replaced with some code to randomly pick a monkey to be removed.
+    } else if (this.spendBananas(cost)) {  //Cost of monkey will be based on monkey type
+      this.barrel.inTheBarrel.push(new Monkey('Wild', 10, 10, 0, 0));  // Eventually we'll pass this function the monkey type
+    } else {
+      return false;
+    }
+  },
+  /** buyBarrel
+   *      Buys/Upgrades the barrel size.
+   */
+  buyBarrel: function (cost) {
+    if(this.spendBananas(cost)) {
+      this.barrel.barrelSize++; // This will increase by different numbers based on barrel type.
     }
   },
   /** spendBananas
