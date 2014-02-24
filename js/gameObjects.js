@@ -2,30 +2,6 @@
  * Created by msmith on 2/15/14.
  */
 
-var Barrel = Class.create();
-Barrel.prototype = {
-  initialize: function (size, woodpeckerMultiplier) {
-    this.totalClicks = 0;
-    this.barrelSize = size;  // Default Barrel size
-    this.woodpeckerMultiplier = woodpeckerMultiplier;
-    this.inTheBarrel = [new Monkey('Wild', 1, 100, 0, 0)];  // create an array of monkeys populated with a basic wild monkey
-    this.inTheBarrel.bananaCount = function () {
-      var bCount = 0;
-      for (var i = 0; i < this.length; i++) {
-        bCount += this[i].dropBananas();
-      }
-      return bCount;
-    }
-  },
-  click: function (gameState) {
-    gameState.addBananas(this.inTheBarrel.bananaCount()); // replace with call to instance of gameState
-    this.totalClicks++;
-  },
-  getClicks: function () {
-    return this.totalClicks;
-  }
-};
-
 var Monkey = Class.create();
 Monkey.prototype = {
   initialize: function (type, bananas, cost, poop, steal) {
@@ -48,6 +24,30 @@ Monkey.prototype = {
   },
   stolenBananas: function () {
     return this.stolen;
+  }
+};
+
+var Barrel = Class.create();
+Barrel.prototype = {
+  initialize: function (size, woodpeckerMultiplier) {
+    this.totalClicks = 0;
+    this.barrelSize = size;  // Default Barrel size
+    this.woodpeckerMultiplier = woodpeckerMultiplier;
+    this.inTheBarrel = [new Monkey('Wild', 1, 100, 0, 0)];  // create an array of monkeys populated with a basic wild monkey
+    this.inTheBarrel.bananaCount = function () {
+      var bCount = 0;
+      for (var i = 0; i < this.length; i++) {
+        bCount += this[i].dropBananas();
+      }
+      return bCount;
+    }
+  },
+  click: function (gameState) {
+    gameState.addBananas(this.inTheBarrel.bananaCount()); // replace with call to instance of gameState
+    this.totalClicks++;
+  },
+  getClicks: function () {
+    return this.totalClicks;
   }
 };
 
