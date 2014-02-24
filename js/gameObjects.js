@@ -4,14 +4,14 @@
 
 var Barrel = Class.create();
 Barrel.prototype = {
-  initialize: function () {
+  initialize: function (size, woodpeckerMultiplier) {
     this.totalClicks = 0;
-    this.barrelSize = 1;  // Default Barrel size
+    this.barrelSize = size;  // Default Barrel size
+    this.woodpeckerMultiplier = woodpeckerMultiplier;
     this.inTheBarrel = new Array(new Monkey('Wild', 1, 100, 0, 0));  // create an array of monkeys populated with a basic wild monkey
-    //this.inTheBarrel.push(new Monkey('Wild', 10, 10, 0, 0));  // Maybe reference heap [0] somehow?!
     this.inTheBarrel.bananaCount = function () {
       var bCount = 0;
-      for(i = 0; i< this.length; i++) {
+      for(var i = 0; i< this.length; i++) {
         bCount += this[i].dropBananas();
       }
       return bCount;
