@@ -8,10 +8,10 @@ Barrel.prototype = {
     this.totalClicks = 0;
     this.barrelSize = size;  // Default Barrel size
     this.woodpeckerMultiplier = woodpeckerMultiplier;
-    this.inTheBarrel = new Array(new Monkey('Wild', 1, 100, 0, 0));  // create an array of monkeys populated with a basic wild monkey
+    this.inTheBarrel = [new Monkey('Wild', 1, 100, 0, 0)];  // create an array of monkeys populated with a basic wild monkey
     this.inTheBarrel.bananaCount = function () {
       var bCount = 0;
-      for(var i = 0; i< this.length; i++) {
+      for (var i = 0; i < this.length; i++) {
         bCount += this[i].dropBananas();
       }
       return bCount;
@@ -133,9 +133,9 @@ GameState.prototype = {
    */
   buyMonkey: function (type) {
     if (this.barrel.barrelSize <= this.barrel.inTheBarrel.length) {
-      this.replaceMonkey(this.randomMonkey(),type);  // Barrel is full!  This will be replaced with some code to randomly pick a monkey to be removed.
+      this.replaceMonkey(this.randomMonkey(), type);  // Barrel is full!  This will be replaced with some code to randomly pick a monkey to be removed.
     } else if (this.spendBananas(monkeys.get(type).cost)) {
-      this.barrel.inTheBarrel.push( Object.clone(monkeys.get(type) ));  // cloning the object before pushing onto the array
+      this.barrel.inTheBarrel.push(Object.clone(monkeys.get(type)));  // cloning the object before pushing onto the array
     } else {
       return false;
     }
@@ -150,7 +150,7 @@ GameState.prototype = {
     }
   },
   randomMonkey: function () {
-    switch(this.barrel.inTheBarrel.length){
+    switch (this.barrel.inTheBarrel.length) {
       case 1:   // Only one monkey in the barrel, that's the one that gets removed!
         return 0;
         break;
@@ -168,7 +168,7 @@ GameState.prototype = {
    *      Buys/Upgrades the barrel size.
    */
   buyBarrel: function (cost) {
-    if(this.spendBananas(cost)) {
+    if (this.spendBananas(cost)) {
       this.barrel.barrelSize++; // This will increase by different numbers based on barrel type.
     }
   },
