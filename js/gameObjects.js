@@ -37,9 +37,6 @@ Monkey.prototype = {
     this.stolen = 0;
     this.poopThrown = 0;
   },
-  setName: function (name) {
-    this.name = name;
-  },
   dropBananas: function () {
     return this.bananasDropped;
   },
@@ -136,11 +133,35 @@ GameState.prototype = {
    */
   buyMonkey: function (type) {
     if (this.barrel.barrelSize <= this.barrel.inTheBarrel.length) {
-      return false;  // Barrel is full!  This will replaced with some code to randomly pick a monkey to be removed.
-    } else if (this.spendBananas(monkeys.get(type).cost)) {  //Cost of monkey will be based on monkey type
+      this.replaceMonkey(this.randomMonkey(),type);  // Barrel is full!  This will be replaced with some code to randomly pick a monkey to be removed.
+    } else if (this.spendBananas(monkeys.get(type).cost)) {
       this.barrel.inTheBarrel.push( Object.clone(monkeys.get(type) ));  // cloning the object before pushing onto the array
     } else {
       return false;
+    }
+  },
+  /** replaceMonkey
+   *      Replaces a monkey in the barrel, adds stolen bananas to players bananas.
+   */
+  replaceMonkey: function (index, type) {
+    if (this.spendBananas(monkeys.get(type).cost)) {
+      this.bananas += this.barrel.inTheBarrel[index].stolenBananas();
+      this.barrel.inTheBarrel[index] = Object.clone(monkeys.get(type));  // cloning the object before pushing onto the array
+    }
+  },
+  randomMonkey: function () {
+    switch(this.barrel.inTheBarrel.length){
+      case 1:   // Only one monkey in the barrel, that's the one that gets removed!
+        return 0;
+        break;
+      case 2:   // Only two monkeys in the barrel, one has to go!
+        return 1;
+        break;
+      case 3:   // Only three monkeys in the barrel, pick one of two!
+        return 2;
+        break;
+      default:  // Four or more monkeys, pick one out of three!
+        return 3;
     }
   },
   /** buyBarrel
