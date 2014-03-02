@@ -133,7 +133,10 @@ GameState.prototype = {
    */
   buyMonkey: function (type) {
     if (this.barrel.barrelSize <= this.barrel.inTheBarrel.length) {
-      this.replaceMonkey(this.randomMonkey(),type);  // Barrel is full!  This will be replaced with some code to randomly pick a monkey to be removed.
+      modalWin = new CreateModalPopUpObject();
+      var functionArray = new Array (this.replaceMonkey,this.randomMonkey,type);
+      modalWin.ShowURL('randMonkey.html',320,470,'Monkey Choice',null,functionArray);
+      // this.replaceMonkey(this.randomMonkey(),type);  // Barrel is full!  This will be replaced with some code to randomly pick a monkey to be removed.
     } else if (this.spendBananas(monkeys.get(type).cost)) {
       this.barrel.inTheBarrel.push( Object.clone(monkeys.get(type) ));  // cloning the object before pushing onto the array
     } else {
