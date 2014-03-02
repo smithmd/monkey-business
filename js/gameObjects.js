@@ -133,10 +133,7 @@ GameState.prototype = {
    */
   buyMonkey: function (type) {
     if (this.barrel.barrelSize <= this.barrel.inTheBarrel.length) {
-      modalWin = new CreateModalPopUpObject();
-      var functionArray = new Array (this.replaceMonkey,this.randomMonkey,type);
-      modalWin.ShowURL('randMonkey.html',320,470,'Monkey Choice',null,functionArray);
-      // this.replaceMonkey(this.randomMonkey(),type);  // Barrel is full!  This will be replaced with some code to randomly pick a monkey to be removed.
+      this.replaceMonkey(this.randomMonkey(),type);  // Barrel is full!  This will be replaced with some code to randomly pick a monkey to be removed.
     } else if (this.spendBananas(monkeys.get(type).cost)) {
       this.barrel.inTheBarrel.push( Object.clone(monkeys.get(type) ));  // cloning the object before pushing onto the array
     } else {
@@ -163,15 +160,17 @@ GameState.prototype = {
       case 2:   // Only two monkeys in the barrel
         this.randTwo = 1;
       case 1:   // Only one monkey in the barrel
-        return [this.randOne, this.randTwo, this.randThree];
+        //return [this.randOne, this.randTwo, this.randThree];
+        return this.randOne;
         break;
       default:  // Four or more monkeys, pick one out of three!
         while((this.randOne === this.randTwo) || (this.randTwo === this.randThree) || (this.randOne === this.randThree) || (this.randThree === 0)) {
-          this.randOne = Math.floor(Math.random()*this.inTheBarrel.length);
-          this.randTwo = Math.floor(Math.random()*this.inTheBarrel.length);
-          this.randThree = Math.floor(Math.random()*this.inTheBarrel.length);
+          this.randOne = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
+          this.randTwo = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
+          this.randThree = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
         }
-        return [this.randOne, this.randTwo, this.randThree];
+        //return [this.randOne, this.randTwo, this.randThree];
+        return this.randOne;
     }
   },
   /** buyBarrel

@@ -17,6 +17,8 @@ function addMonkey(type) {
   gameState.buyMonkey(type);  // Eventually we'll pass the monkey type and get cost/etc from that
   refreshBananas();
   refreshBarrel();
+  refreshMonkeysInBarrel();
+  refreshBPC();
 }
 
 function addBarrel() {
