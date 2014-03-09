@@ -150,18 +150,27 @@ GameState.prototype = {
     }
   },
   randomMonkey: function () {
-    switch (this.barrel.inTheBarrel.length) {
-      case 1:   // Only one monkey in the barrel, that's the one that gets removed!
-        return 0;
-        break;
-      case 2:   // Only two monkeys in the barrel, one has to go!
-        return 1;
-        break;
-      case 3:   // Only three monkeys in the barrel, pick one of two!
-        return 2;
+    this.randOne = 0;
+    this.randTwo = 0;
+    this.randThree = 0;
+
+    switch(this.barrel.inTheBarrel.length){
+      case 3:   // Only three monkeys in the barrel
+        this.randThree = 2;
+      case 2:   // Only two monkeys in the barrel
+        this.randTwo = 1;
+      case 1:   // Only one monkey in the barrel
+        //return [this.randOne, this.randTwo, this.randThree];
+        return this.randOne;
         break;
       default:  // Four or more monkeys, pick one out of three!
-        return 3;
+        while((this.randOne === this.randTwo) || (this.randTwo === this.randThree) || (this.randOne === this.randThree) || (this.randThree === 0)) {
+          this.randOne = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
+          this.randTwo = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
+          this.randThree = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
+        }
+        //return [this.randOne, this.randTwo, this.randThree];
+        return this.randOne;
     }
   },
   /** buyBarrel
