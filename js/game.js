@@ -21,7 +21,7 @@ function addMonkey(type) {
   refreshBPC();
 }
 
-function addBarrel() {
+function upgradeBarrel() {
   gameState.buyBarrel(50);  // Eventually we'll pass the barrel type and get cost/etc from that
   refreshBananas();
   refreshBarrel();
@@ -40,6 +40,7 @@ function refreshWoodPeckerCost() {
 }
 
 function refreshBarrel() {
+  $('barrelType').innerHTML = gameState.barrel.barrelName;
   $('sBarrel').innerHTML = gameState.barrel.barrelSize;
   $('inBarrel').innerHTML = gameState.barrel.inTheBarrel.length;
   refreshMonkeysInBarrel();
