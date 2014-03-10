@@ -15,5 +15,5 @@ The barrel that holds the monkey
 #### `GameState`
 The state of the game. Tracks player's bananas, achievements, upgrades, etc.
 
-#### 'Monkey'
+#### `Monkey`
 Holds information about the monkey, like Type and Number of Bananas Dropped.
