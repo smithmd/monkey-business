@@ -12,8 +12,12 @@ Contains all of the objects for the game.
 #### `Barrel`
 The barrel that holds the monkey
 
-#### `GameState`
-The state of the game. Tracks player's bananas, achievements, upgrades, etc.
-
 #### `Monkey`
 Holds information about the monkey, like Type and Number of Bananas Dropped.
+
+
+##gameState.js
+This file holds the class with the GameState object.
+
+#### `GameState`
+The state of the game. Tracks player's bananas, achievements, upgrades, etc.
