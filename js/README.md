@@ -21,3 +21,11 @@ This file holds the class with the GameState object.
 
 #### `GameState`
 The state of the game. Tracks player's bananas, achievements, upgrades, etc.
+
+##objectSets.js
+Lists and Hashes that are used for the initial objects in the game
+
+
+
+##game.js
+All of the functions that are used for the game.
