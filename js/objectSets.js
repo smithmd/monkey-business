@@ -10,13 +10,13 @@ monkeys.set('ceo', new Monkey('CEO', 200, 50000, 0, 0));
 
 // don't know if we need to initialize all barrels at the beginning
 var barrels = [
-    new Barrel(1, 1),
-    new Barrel(2, 1),
-    new Barrel(4, 1.2),
-    new Barrel(6, 0.9),
-    new Barrel(10, 0.8),
-    new Barrel(12, 0.7),
-    new Barrel(15, 0.7),
-    new Barrel(18, 0.5),
-    new Barrel(20, 0.2)
+  new Barrel(1, 1, "Oak"),
+  new Barrel(2, 1, "Balsa"),
+  new Barrel(4, 1.2, "Plastic"),
+  new Barrel(6, 1.4, "Rubber"),
+  new Barrel(10, 1.1, "Drywall"),
+  new Barrel(12, 0.7, "Antique"),
+  new Barrel(15, 0.3, "Concrete"),
+  new Barrel(18, 0.5, "Aluminum"),
+  new Barrel(20, 0.2, "Titanium")
 ];

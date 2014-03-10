@@ -9,7 +9,7 @@
     <div id="scoreboard">
       <span id="bCounter">0</span> bananas<br/>
       <span id="bStrength">0</span> beak strength<br/>
-      <span id="inBarrel">1</span> of <span id="sBarrel">1</span> monkeys in the barrel<br/>
+      <span id="inBarrel">1</span> of <span id="sBarrel">1</span> monkeys in the <span id="barrelType"></span> Barrel<br/>
 
       <span id="bpc"></span> bananas per click<br/>
       <span>Monkeys in the barrel:</span><br />
@@ -20,7 +20,7 @@
     <div id="upgrades">
       <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Basic Woodpecker (<span id="wCost">15</span>
         bananas)</a><br/>
-      <a href="javascript:void(0);" onclick="addBarrel()">Upgrade the Barrel (50 bananas)</a><br/>
+      <a href="javascript:void(0);" onclick="upgradeBarrel()">Upgrade the Barrel (50 bananas)</a><br/>
     </div>
     <?php include 'include/scripts.inc' ?>
     <script type="application/javascript">
@@ -34,6 +34,7 @@
         $('monkeys').innerHTML = monkeyList;
         refreshMonkeysInBarrel();
         refreshBPC();
+        refreshBarrel();
       });
     </script>
   </body>
