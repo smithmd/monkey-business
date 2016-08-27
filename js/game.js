@@ -6,6 +6,13 @@ function barrelClick() {
   refreshBarrel();
 }
 
+function removeMonkey(index) {
+  gameState.removeMonkey(index);
+  refreshBarrel();
+  refreshMonkeysInBarrel();
+  refreshBPC();
+}
+
 function addWoodpecker() {
   //gameState.enableWoodPecker(100, 100, 15); // pecks the barrel 100 times, once per 100ms
   gameState.buyWoodPecker();
@@ -51,7 +58,9 @@ function refreshMonkeysInBarrel() {
   var monkeys = '';
 
   for (var i = 0; i < gameState.barrel.inTheBarrel.length; i++) {
-    monkeys += '<li>' + gameState.barrel.inTheBarrel[i].type + '</li>';
+    monkeys += '<li>' +
+        gameState.barrel.inTheBarrel[i].type +
+        ' <a href="javascript:void(0);" onclick="removeMonkey(' + i + ')">(Remove)</a></li>';
   }
 
   $('monkeysInBarrel').innerHTML = monkeys;

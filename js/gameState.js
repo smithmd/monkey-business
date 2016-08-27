@@ -74,7 +74,7 @@ GameState.prototype = {
       return false;
     } else {
       if (this.spendBananas(this.magic)) {   // magic starts at 15, increases by about 35% every time.
-        this.enableWoodPecker(Math.floor(this.magic * 1.1), 100);   // 100 is arbitrary, we'll probably change it.
+        this.enableWoodPecker(Math.floor(this.magic * 1.1), 500);   // 500 is arbitrary, we'll probably change it.
         this.levelWoodPecker++; // Totally not being used right now, until we make a list of WPs.
         this.magic = Math.floor(this.magic * 1.35);
       }
@@ -101,29 +101,15 @@ GameState.prototype = {
       this.barrel.inTheBarrel[index] = Object.clone(monkeys.get(type));  // cloning the object before pushing onto the array
     }
   },
-  randomMonkey: function () {
-    this.randOne = 0;
-    this.randTwo = 0;
-    this.randThree = 0;
-
-    switch(this.barrel.inTheBarrel.length){
-      case 3:   // Only three monkeys in the barrel
-        this.randThree = 2;
-      case 2:   // Only two monkeys in the barrel
-        this.randTwo = 1;
-      case 1:   // Only one monkey in the barrel
-        //return [this.randOne, this.randTwo, this.randThree];
-        return this.randOne;
-        break;
-      default:  // Four or more monkeys, pick one out of three!
-        while((this.randOne === this.randTwo) || (this.randTwo === this.randThree) || (this.randOne === this.randThree) || (this.randThree === 0)) {
-          this.randOne = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
-          this.randTwo = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
-          this.randThree = Math.floor((Math.random()*this.barrel.inTheBarrel.length));
-        }
-        //return [this.randOne, this.randTwo, this.randThree];
-        return this.randOne;
+  removeMonkey: function (index) {
+    // can't remove last monkey from barrel
+    if (this.barrel.inTheBarrel.length > 1) {
+      var removedMonkey = this.barrel.inTheBarrel.splice(index, 1);
     }
+  },
+  randomMonkey: function () {
+    // get a random monkey's index
+    return Math.floor((Math.random()*this.barrel.inTheBarrel.length));
   },
   /** buyBarrel
    *      Buys/Upgrades the barrel size.
