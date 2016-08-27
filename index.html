@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="js/prototype.js"></script>
+  <script src="js/gameObjects.js"></script>
+  <script src="js/objectSets.js"></script>
+  <script src="js/gameState.js"></script>
+  <script src="js/game.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="sass/style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div id="scoreboard" class="col-md-4">
+        <span id="bCounter">0</span> bananas<br/>
+        <span id="inBarrel">1</span> of <span id="sBarrel">1</span> monkeys in the <span id="barrelType"></span>
+        Barrel<br/>
+
+        <span id="bpc"></span> bananas per click<br/>
+      </div>
+      <div class="col-md-4">
+        <span id="bStrength">0</span> beak strength<br/>
+      </div>
+      <div id="monkeys" class="col-md-4">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 text-center">
+        <a href="javascript:void(0);" onclick="barrelClick()" id="barrel"><img src="img/barrel.jpg"/></a>
+      </div>
+      <div class="col-md-4">
+        <span>Monkeys in the barrel:</span><br/>
+        <ul id="monkeysInBarrel"></ul>
+      </div>
+    </div>
+    <div id="upgrades" class="row">
+      <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Basic Woodpecker (<span id="wCost">15</span>
+        bananas)</a><br/>
+      <a href="javascript:void(0);" onclick="upgradeBarrel()">Upgrade the Barrel (50 bananas)</a><br/>
+    </div>
+  </div>
+  <script type="application/javascript">
+    document.observe("dom:loaded", function () {
+      var monkeyList = '<ul class="monkeysToBuy">';
+      monkeys.each(function (pair) {
+        monkeyList += '<li><a href="javascript:void(0);" onclick="addMonkey(\'' + pair.key + '\')">'
+            + 'Buy a ' + pair.value.type + " Monkey (" + pair.value.cost + ")" + '</a></li>';
+      });
+      monkeyList += '</ul>';
+      $('monkeys').innerHTML = monkeyList;
+      refreshMonkeysInBarrel();
+      refreshBPC();
+      refreshBarrel();
+    });
+  </script>
+</body>
+</html>
