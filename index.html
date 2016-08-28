@@ -48,9 +48,14 @@
       <div class="col-md-3" id="monkeysToBuy"></div>
     </div>
     <div id="upgrades" class="row">
-      <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Basic Woodpecker (<span id="wCost">15</span>
-        bananas)</a><br/>
-      <a href="javascript:void(0);" onclick="upgradeBarrel()">Upgrade the Barrel (50 bananas)</a><br/>
+      <div class="col-md-6">
+        <div class="purchase" onclick="addWoodpecker()">
+          Buy a Basic Woodpecker (<span id="wCost">15</span> bananas)
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="purchase" onclick="upgradeBarrel()">Upgrade the Barrel (50 bananas)</div>
+      </div>
     </div>
   </div>
   <script type="application/javascript">
@@ -58,7 +63,7 @@
       monkeys.each(function (pair) {
         var monkey = document.createElement('div');
         monkey.setAttribute('onclick', 'addMonkey("' + pair.key + '")');
-        monkey.classList.add('monkeyToBuy');
+        monkey.classList.add('purchase');
 
         var monkeyName = document.createTextNode(pair.value.type);
         monkey.appendChild(monkeyName);

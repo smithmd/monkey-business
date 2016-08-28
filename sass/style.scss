@@ -26,8 +26,8 @@ a {
   }
 }
 
-#monkeysToBuy {
-  .monkeyToBuy {
+#monkeysToBuy, #upgrades {
+  .purchase {
     cursor: pointer;
     background-color: $darkSkyBlue;
     border: 1px solid $prussianBlue;
