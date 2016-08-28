@@ -17,27 +17,36 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div id="scoreboard" class="col-md-4">
-        <span id="bCounter">0</span> bananas<br/>
-        <span id="inBarrel">1</span> of <span id="sBarrel">1</span> monkeys in the <span id="barrelType"></span>
-        Barrel<br/>
+      <div class="col-md-9">
+        <div class="container">
+          <div class="row">
+            <div id="scoreboard" class="col-md-4">
+              <span id="bCounter">0</span> bananas<br/>
+              <span id="inBarrel">1</span> of <span id="sBarrel">1</span> monkeys in the
+              <span id="barrelType"></span>
+              Barrel<br/>
 
-        <span id="bpc"></span> bananas per click<br/>
+              <span id="bpc"></span> bananas per click<br/>
+            </div>
+            <div class="col-md-4">
+              Beak Strength<br/>
+              <div id="beakStrengthHolder">
+                <div id="beakStrengthBar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <span>Monkeys in the barrel:</span><br/>
+              <ul id="monkeysInBarrel"></ul>
+            </div>
+            <div class="col-md-6 text-center">
+              <a href="javascript:void(0);" onclick="barrelClick()" id="barrel"><img src="img/barrel.jpg"/></a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
-        <span id="bStrength">0</span> beak strength<br/>
-      </div>
-      <div id="monkeys" class="col-md-4">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8 text-center">
-        <a href="javascript:void(0);" onclick="barrelClick()" id="barrel"><img src="img/barrel.jpg"/></a>
-      </div>
-      <div class="col-md-4">
-        <span>Monkeys in the barrel:</span><br/>
-        <ul id="monkeysInBarrel"></ul>
-      </div>
+      <div class="col-md-3" id="monkeysToBuy"></div>
     </div>
     <div id="upgrades" class="row">
       <a href="javascript:void(0);" onclick="addWoodpecker()">Buy a Basic Woodpecker (<span id="wCost">15</span>
@@ -47,13 +56,17 @@
   </div>
   <script type="application/javascript">
     document.observe("dom:loaded", function () {
-      var monkeyList = '<ul class="monkeysToBuy">';
       monkeys.each(function (pair) {
-        monkeyList += '<li><a href="javascript:void(0);" onclick="addMonkey(\'' + pair.key + '\')">'
-            + 'Buy a ' + pair.value.type + " Monkey (" + pair.value.cost + ")" + '</a></li>';
+        var monkey = document.createElement('div');
+        monkey.setAttribute('onclick', 'addMonkey("' + pair.key + '")');
+        monkey.classList.add('monkeyToBuy');
+
+        var monkeyName = document.createTextNode(pair.value.type);
+        monkey.appendChild(monkeyName);
+        monkey.appendChild(document.createElement('br'));
+        monkey.appendChild(document.createTextNode(pair.value.cost + ' Bananas'));
+        document.getElementById('monkeysToBuy').appendChild(monkey);
       });
-      monkeyList += '</ul>';
-      $('monkeys').innerHTML = monkeyList;
       refreshMonkeysInBarrel();
       refreshBPC();
       refreshBarrel();

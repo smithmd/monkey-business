@@ -1,9 +1,32 @@
-ul.monkeysToBuy {
-  background-color: beige;
+#monkeysToBuy {
+  .monkeyToBuy {
+    cursor: pointer;
+    background-color: rgba(86, 61, 124, .15);
+    border: 1px solid rgba(86, 61, 124, .2);
+    padding: .5em 1em;
+    margin: 1em;
 
-  li {
-    text-decoration: none;
-    list-style: none;
+    &:hover {
+      background-color: rgba(86, 61, 124, .35);
+      border: 1px solid rgba(86, 61, 124, .4);
+    }
+
+    &:active {
+      background-color: rgba(86, 61, 124, .4);
+      border: 1px solid rgba(86, 61, 124, .45);
+    }
   }
 }
 
+#beakStrengthHolder {
+  width:90%;
+  background-color: rgba(86, 61, 124, .15);
+  border: 1px solid rgba(86, 61, 124, .2);
+  height:25px;
+
+  #beakStrengthBar {
+    background-color: rgba(86, 61, 124, .35);
+    height: 25px;
+    width:0;
+  }
+}

@@ -1,7 +1,24 @@
-ul.monkeysToBuy {
-  background-color: beige; }
-  ul.monkeysToBuy li {
-    text-decoration: none;
-    list-style: none; }
+#monkeysToBuy .monkeyToBuy {
+  cursor: pointer;
+  background-color: rgba(86, 61, 124, 0.15);
+  border: 1px solid rgba(86, 61, 124, 0.2);
+  padding: .5em 1em;
+  margin: 1em; }
+  #monkeysToBuy .monkeyToBuy:hover {
+    background-color: rgba(86, 61, 124, 0.35);
+    border: 1px solid rgba(86, 61, 124, 0.4); }
+  #monkeysToBuy .monkeyToBuy:active {
+    background-color: rgba(86, 61, 124, 0.4);
+    border: 1px solid rgba(86, 61, 124, 0.45); }
+
+#beakStrengthHolder {
+  width: 90%;
+  background-color: rgba(86, 61, 124, 0.15);
+  border: 1px solid rgba(86, 61, 124, 0.2);
+  height: 25px; }
+  #beakStrengthHolder #beakStrengthBar {
+    background-color: rgba(86, 61, 124, 0.35);
+    height: 25px;
+    width: 0; }
 
 /*# sourceMappingURL=style.css.map */

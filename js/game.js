@@ -14,9 +14,7 @@ function removeMonkey(index) {
 }
 
 function addWoodpecker() {
-  //gameState.enableWoodPecker(100, 100, 15); // pecks the barrel 100 times, once per 100ms
   gameState.buyWoodPecker();
-  refreshBeakStrength();
   refreshWoodPeckerCost();
 }
 
@@ -36,10 +34,6 @@ function upgradeBarrel() {
 
 function refreshBananas() {
   $('bCounter').innerHTML = gameState.bananas;
-}
-
-function refreshBeakStrength() {
-  $('bStrength').innerHTML = gameState.beakStrength;
 }
 
 function refreshWoodPeckerCost() {
