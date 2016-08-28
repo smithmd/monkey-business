@@ -1,24 +1,37 @@
+html, body {
+  background-color: #d9f0ff; }
+
+a {
+  color: #ddae7e; }
+  a:link, a:visited {
+    color: #ddae7e; }
+  a:hover {
+    color: #b18b65; }
+  a:active {
+    color: #ddae7e; }
+
 #monkeysToBuy .monkeyToBuy {
   cursor: pointer;
-  background-color: rgba(86, 61, 124, 0.15);
-  border: 1px solid rgba(86, 61, 124, 0.2);
+  background-color: #86bbd8;
+  border: 1px solid #133c55;
+  border-radius: 3px;
   padding: .5em 1em;
   margin: 1em; }
   #monkeysToBuy .monkeyToBuy:hover {
-    background-color: rgba(86, 61, 124, 0.35);
-    border: 1px solid rgba(86, 61, 124, 0.4); }
+    background-color: #79a8c2;
+    border: 1px solid #11364d; }
   #monkeysToBuy .monkeyToBuy:active {
-    background-color: rgba(86, 61, 124, 0.4);
-    border: 1px solid rgba(86, 61, 124, 0.45); }
+    background-color: #6b96ad; }
 
 #beakStrengthHolder {
   width: 90%;
-  background-color: rgba(86, 61, 124, 0.15);
-  border: 1px solid rgba(86, 61, 124, 0.2);
+  background-color: #86bbd8;
+  border: 1px solid #133c55;
+  border-radius: 3px;
   height: 25px; }
   #beakStrengthHolder #beakStrengthBar {
-    background-color: rgba(86, 61, 124, 0.35);
-    height: 25px;
+    background-color: #6b96ad;
+    height: 23px;
     width: 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,32 +1,61 @@
+$bedazzledBlue: rgba(39, 70, 144, 1);
+$mediumSpringBud: rgba(207, 242, 126, 1);
+$prussianBlue: rgba(19, 60, 85, 1);
+$slateGray: rgba(113, 124, 137, 1);
+$azureishWhite: rgba(217, 240, 255, 1);
+$darkSkyBlue: rgba(134, 187, 216, 1);
+$darkCerulean: rgba(8, 61, 119, 1);
+$tumbleweed: rgba(221, 174, 126, 1);
+
+html, body {
+  background-color: $azureishWhite;
+}
+a {
+  color:$tumbleweed;
+
+  &:link, &:visited {
+    color: $tumbleweed;
+  }
+
+  &:hover {
+    color:$tumbleweed * 0.8;
+  }
+
+  &:active {
+    color:$tumbleweed;
+  }
+}
+
 #monkeysToBuy {
   .monkeyToBuy {
     cursor: pointer;
-    background-color: rgba(86, 61, 124, .15);
-    border: 1px solid rgba(86, 61, 124, .2);
+    background-color: $darkSkyBlue;
+    border: 1px solid $prussianBlue;
+    border-radius: 3px;
     padding: .5em 1em;
     margin: 1em;
 
     &:hover {
-      background-color: rgba(86, 61, 124, .35);
-      border: 1px solid rgba(86, 61, 124, .4);
+      background-color: $darkSkyBlue * 0.9;
+      border: 1px solid $prussianBlue * 0.9;
     }
 
     &:active {
-      background-color: rgba(86, 61, 124, .4);
-      border: 1px solid rgba(86, 61, 124, .45);
+      background-color: $darkSkyBlue * 0.8;
     }
   }
 }
 
 #beakStrengthHolder {
   width:90%;
-  background-color: rgba(86, 61, 124, .15);
-  border: 1px solid rgba(86, 61, 124, .2);
+  background-color: $darkSkyBlue;
+  border: 1px solid $prussianBlue;
+  border-radius: 3px;
   height:25px;
 
   #beakStrengthBar {
-    background-color: rgba(86, 61, 124, .35);
-    height: 25px;
+    background-color: $darkSkyBlue * 0.8;
+    height: 23px;
     width:0;
   }
 }
