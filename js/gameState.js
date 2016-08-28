@@ -17,7 +17,18 @@ GameState.prototype = {
     this.monkey = new Monkey(0, 1, 0);
     this.magic = 15;                        // TEMPORARY MAGIC NUMBER TO MAKE WP WORK! WEE!
   },
+  /** saveState
+   *    Saves the game state to html5 storage
+   */
+  saveState: function() {
 
+  },
+  /** loadState
+   *
+   */
+  loadState: function () {
+
+  },
   /** addBananas
    *      Check to see if the monkey is going to throw poop, if not, add bananas.
    */

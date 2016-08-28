@@ -7,54 +7,69 @@ $darkSkyBlue: rgba(134, 187, 216, 1);
 $darkCerulean: rgba(8, 61, 119, 1);
 $tumbleweed: rgba(221, 174, 126, 1);
 
-html, body {
-  background-color: $azureishWhite;
+/* jungle colors */
+$kombuGreen: rgba(55, 57, 46, 1);
+$blueSapphire: rgba(25, 100, 126, 1);
+$emerald: rgba(79, 180, 119, 1);
+$deepMossGreen: rgba(63, 102, 52, 1);
+$charlestonGreen: rgba(46, 44, 47, 1);
+
+html, body, div {
+  background-color: $emerald;
+  color:$charlestonGreen;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;
 }
 a {
-  color:$tumbleweed;
+  color:$blueSapphire;
 
   &:link, &:visited {
-    color: $tumbleweed;
+    color: $blueSapphire;
   }
 
   &:hover {
-    color:$tumbleweed * 0.8;
+    color:$blueSapphire * 0.8;
   }
 
   &:active {
-    color:$tumbleweed;
+    color:$blueSapphire;
   }
 }
 
 #monkeysToBuy, #upgrades {
   .purchase {
     cursor: pointer;
-    background-color: $darkSkyBlue;
-    border: 1px solid $prussianBlue;
+    background-color: $deepMossGreen;
+    border: 1px solid $charlestonGreen;
     border-radius: 3px;
     padding: .5em 1em;
     margin: 1em;
+    color: $emerald;
 
     &:hover {
-      background-color: $darkSkyBlue * 0.9;
-      border: 1px solid $prussianBlue * 0.9;
+      background-color: $deepMossGreen * 0.9;
+      border: 1px solid $charlestonGreen * 0.9;
     }
 
     &:active {
-      background-color: $darkSkyBlue * 0.8;
+      background-color: $deepMossGreen * 0.8;
     }
   }
 }
 
 #beakStrengthHolder {
   width:90%;
-  background-color: $darkSkyBlue;
-  border: 1px solid $prussianBlue;
+  background-color: $deepMossGreen;
+  border: 1px solid $charlestonGreen;
   border-radius: 3px;
   height:25px;
 
   #beakStrengthBar {
-    background-color: $darkSkyBlue * 0.8;
+    background-color: $deepMossGreen * 0.8;
     height: 23px;
     width:0;
   }

@@ -1,36 +1,50 @@
-html, body {
-  background-color: #d9f0ff; }
+/* jungle colors */
+html, body, div {
+  background-color: #4fb477;
+  color: #2e2c2f;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  -khtml-user-select: none;
+  /* Konqueror */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none; }
 
 a {
-  color: #ddae7e; }
+  color: #19647e; }
   a:link, a:visited {
-    color: #ddae7e; }
+    color: #19647e; }
   a:hover {
-    color: #b18b65; }
+    color: #145065; }
   a:active {
-    color: #ddae7e; }
+    color: #19647e; }
 
 #monkeysToBuy .purchase, #upgrades .purchase {
   cursor: pointer;
-  background-color: #86bbd8;
-  border: 1px solid #133c55;
+  background-color: #3f6634;
+  border: 1px solid #2e2c2f;
   border-radius: 3px;
   padding: .5em 1em;
-  margin: 1em; }
+  margin: 1em;
+  color: #4fb477; }
   #monkeysToBuy .purchase:hover, #upgrades .purchase:hover {
-    background-color: #79a8c2;
-    border: 1px solid #11364d; }
+    background-color: #395c2f;
+    border: 1px solid #29282a; }
   #monkeysToBuy .purchase:active, #upgrades .purchase:active {
-    background-color: #6b96ad; }
+    background-color: #32522a; }
 
 #beakStrengthHolder {
   width: 90%;
-  background-color: #86bbd8;
-  border: 1px solid #133c55;
+  background-color: #3f6634;
+  border: 1px solid #2e2c2f;
   border-radius: 3px;
   height: 25px; }
   #beakStrengthHolder #beakStrengthBar {
-    background-color: #6b96ad;
+    background-color: #32522a;
     height: 23px;
     width: 0; }
 
