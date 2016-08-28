@@ -2,6 +2,7 @@
 html, body, div {
   background-color: #4fb477;
   color: #2e2c2f;
+  /* disables user selection highlighting */
   -webkit-touch-callout: none;
   /* iOS Safari */
   -webkit-user-select: none;

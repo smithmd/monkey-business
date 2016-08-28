@@ -8,6 +8,8 @@ $charlestonGreen: rgba(46, 44, 47, 1);
 html, body, div {
   background-color: $emerald;
   color:$charlestonGreen;
+
+  /* disables user selection highlighting */
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none;   /* Chrome/Safari/Opera */
   -khtml-user-select: none;    /* Konqueror */
