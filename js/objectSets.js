@@ -8,6 +8,12 @@ monkeys.set('factory', new Monkey('Factory Worker', 32, 6000, 0, 0));
 monkeys.set('programmer', new Monkey('Programmer', 64, 15000, 0, 0));
 monkeys.set('ceo', new Monkey('CEO', 200, 50000, 0, 0));
 
+var consts = {
+  "barrel_size_pos": 0,
+  "woodpecker_multi_pos": 1,
+  "barrel_name_pos": 2
+};
+
 // don't know if we need to initialize all barrels at the beginning
 var barrels = [
   new Barrel(1, 1, "Balsa"),
@@ -19,4 +25,16 @@ var barrels = [
   new Barrel(15, 0.3, "Concrete"),
   new Barrel(18, 0.5, "Aluminum"),
   new Barrel(20, 0.2, "Titanium")
+];
+
+var barrel_properties = [
+  [1, 1, "Balsa"],
+  [2, 1, "Oak"],
+  [4, 1.2, "Plastic"],
+  [6, 1.4, "Rubber"],
+  [10, 1.1, "Drywall"],
+  [12, 0.7, "Antique"],
+  [15, 0.3, "Concrete"],
+  [18, 0.5, "Aluminum"],
+  [20, 0.2, "Titanium"]
 ];

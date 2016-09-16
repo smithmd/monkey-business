@@ -16,6 +16,7 @@ GameState.prototype = {
     this.barrel = barrels[barrelType];
     this.monkey = new Monkey(0, 1, 0);
     this.magic = 15;                        // TEMPORARY MAGIC NUMBER TO MAKE WP WORK! WEE!
+    this.barrels = [barrels[barrelType]];
   },
   /** saveState
    *    Saves the game state to html5 storage
@@ -88,14 +89,15 @@ GameState.prototype = {
    *      Turns on the WoodPecker, automatically gets stronger and more expensive.
    */
   buyWoodPecker: function () {
+    var self = this;
     if (this.hasWoodPecker) {
       return false;
     } else {
-      if (this.spendBananas(this.magic)) {   // magic starts at 15, increases by about 35% every time.
+      if (self.spendBananas(this.magic)) {   // magic starts at 15, increases by about 35% every time.
         document.getElementById('beakStrengthBar').style.width = '100%';
-        this.enableWoodPecker(Math.floor(this.magic * 1.1), 500);   // 500 is arbitrary, we'll probably change it.
-        this.levelWoodPecker++; // Totally not being used right now, until we make a list of WPs.
-        this.magic = Math.floor(this.magic * 1.35);
+        self.enableWoodPecker(Math.floor(this.magic * 1.1), 500);   // 500 is arbitrary, we'll probably change it.
+        self.levelWoodPecker++; // Totally not being used right now, until we make a list of WPs.
+        self.magic = Math.floor(this.magic * 1.35);
       }
     }
   },
@@ -135,7 +137,8 @@ GameState.prototype = {
    */
   buyBarrel: function (cost) {
     if (this.spendBananas(cost)) {
-      this.upgradeBarrel();
+      var b = new Barrel.apply(this, barrel_properties[0]);
+      this.barrels.push(b);
     }
   },
   /** spendBananas

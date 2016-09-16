@@ -6,6 +6,8 @@ function barrelClick() {
   refreshBarrel();
 }
 
+
+
 function removeMonkey(index) {
   gameState.removeMonkey(index);
   refreshBarrel();
@@ -68,3 +70,4 @@ function refreshBPC() {
 
   $('bpc').innerHTML = bananaValue;
 }
+
